@@ -8,7 +8,6 @@
 #   * module - The name of the Puppet Forge module to uninstall.
 
 require 'puppet'
-require 'puppetclassify'
 require 'open3'
 
 Puppet.initialize_settings
@@ -31,23 +30,10 @@ def uninstall_module(modname)
   }
 end
 
-def refresh_environment(environment)
-  auth_info = {
-    "ca_certificate_path" => `puppet config print localcacert`.strip,
-    "certificate_path"    => `puppet config print hostcert`.strip,
-    "private_key_path"    => `puppet config print hostprivkey`.strip,    
-    "read_timeout"        => 90
-  }
-  classifier_url = "https://#{Puppet[:server]}:4433/classifier-api"
-  puppetclassify = PuppetClassify.new(classifier_url, auth_info)
-  puppetclassify.update_classes.update  
-end
-
 modname.each do |mod|
   results[mod] = {}
 
   output=uninstall_module(mod)
-  refresh_environment(environment)
 
   if output[:exit_code] == 0
     results[mod][:result] = if output[:stdout].include? 'Removed'

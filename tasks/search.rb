@@ -9,64 +9,41 @@
 
 require 'puppet'
 require 'open3'
+require 'json'
 
 Puppet.initialize_settings
 
 results = {}
 params = JSON.parse(STDIN.read)
-modules = params['modules'].split(',')
+modname = params['search_for'].split(',')
 
 unless Puppet[:server] == Puppet[:certname]
   puts 'This task can only be run against the Master (of Masters)'
   exit 1
 end
 
-def search_module(modules)
-    stdout, stderr, status = Open3.capture3('/opt/puppetlabs/bin/puppet', 'search', modules)
-  {
-    stdout: stdout.strip,
-    stderr: stderr.strip,
-    exit_code: status.exitstatus
-  }
-end
-
-modules.each do |mod|
+modname.each do |mod|
   results[mod] = {}
-  modlist=mod.split('=')
-  modname=modlist[0]
+  output=search_module(modname)
+  output_json = JSON.parse(output)
+  answers = output_json['answers']
 
-  output=install_module(modname,version)
+answers.each do |answer|
+  full_name = answer['full_name']
+  version = answer['version']
+  description = answer['desc']
 
-  if output[:exit_code] == 0
-    results[mod][:result] = if output[:stdout].include? 'already installed'
-                              puts "The #{modname} module is already installed."
-                            else
-                              puts "The #{modname} module was installed."
-                            end
-  else
-    results[mod][:result] = case output[:stderr]
-    when /400 Bad Request/
-      puts "The #{modname} module(s) could not be found on Puppet Forge"
-      puts 'Check your spelling and try again.'
-    when /No releases are available/
-      puts "The #{modname} module(s) could not be found on Puppet Forge"
-      puts 'Check your spelling and try again.'
-    when /satisfy all dependencies/
-      puts "The #{modname} module(s) could not be installed because of"
-      puts 'dependency issues. Please install dependencies before trying again.'
-      puts 'Or you can force the installation with the --ignore-dependencies option.'
-    when /No releases matching/
-      puts "The #{modname} module(s) could not be installed because the version is"
-      puts "incorrect. Check the version and try again."
-    when /is already installed/
-      puts 'This module is already installed.'
-      puts 'You can use the upgrade option to install a different version.'
-      puts 'Or you can use the force option to re-install this module.'
-    when /Unparsable version range/
-      puts 'The version number is incorrect.'
-      puts 'Check the version number and try again.'
-    else
-      puts "The #{modname} module(s) could not be installed"
-    end
-  end
+  puts full_name
+  puts version
+  puts description
 end
+end
+
+  def search_module(modname)
+      stdout, stderr, status = Open3.capture3('/opt/puppetlabs/bin/puppet', 'search', '--render-as JSON', modname)
+    {
+      stdout: stdout.strip,
+      stderr: stderr.strip,
+      exit_code: status.exitstatus
+    }
+  end

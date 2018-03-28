@@ -9,7 +9,6 @@
 #   Example usage: modname=version >> tspy-code_deploy=1.0.2
 
 require 'puppet'
-require 'puppetclassify'
 require 'open3'
 
 Puppet.initialize_settings
@@ -36,18 +35,6 @@ def install_module(modules,version)
   }
 end
 
-def refresh_environment(environment)
-  auth_info = {
-    "ca_certificate_path" => `puppet config print localcacert`.strip,
-    "certificate_path"    => `puppet config print hostcert`.strip,
-    "private_key_path"    => `puppet config print hostprivkey`.strip,    
-    "read_timeout"        => 90
-  }
-  classifier_url = "https://#{Puppet[:server]}:4433/classifier-api"
-  puppetclassify = PuppetClassify.new(classifier_url, auth_info)
-  puppetclassify.update_classes.update  
-end
-
 modules.each do |mod|
   results[mod] = {}
   modlist=mod.split('=')
@@ -60,7 +47,6 @@ modules.each do |mod|
   end
 
   output=install_module(modname,version)
-  refresh_environment(environment)
   
   if output[:exit_code] == 0
     results[mod][:result] = if output[:stdout].include? 'already installed'
