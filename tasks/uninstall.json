@@ -1,0 +1,11 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Uninstall Puppet modules from the Puppet Forge",
+  "parameters": {
+    "modules": {
+      "description": "Specify the Puppet Forge module name or names, separated by commas.",
+      "type": "String[1]"
+    }
+  }
+}
