@@ -34,7 +34,9 @@ end
 modname.each do |mod|
   results[mod] = {}
   output=search_module(mod)
-  output_json = JSON.parse(output)
+  output_index = output[:stdout].index('{')
+  output_eol = output[:stdout][output_index..-1]
+  output_json = JSON.parse(output_eol)
   answers = output_json['answers']
 
 answers.each do |answer|
