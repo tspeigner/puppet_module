@@ -23,7 +23,7 @@ unless Puppet[:server] == Puppet[:certname]
 end
 
 def search_module(modname)
-  stdout, stderr, status = Open3.capture3('/opt/puppetlabs/bin/puppet', 'module', 'search', '--render-as JSON', modname)
+  stdout, stderr, status = Open3.capture3('/opt/puppetlabs/bin/puppet', 'module', 'search', '--render-as', 'JSON', modname)
 {
   stdout: stdout.strip,
   stderr: stderr.strip,
@@ -33,8 +33,8 @@ end
 
 modname.each do |mod|
   results[mod] = {}
-  output=search_module(mod)
-  puts output[:stdout]
+  output = search_module(mod)
+  #puts output[:stdout]
   output_index = output[:stdout].index('{')
   puts output_index
   output_eol = output[:stdout][output_index..-1]
