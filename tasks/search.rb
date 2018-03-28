@@ -33,7 +33,7 @@ end
 
 modname.each do |mod|
   results[mod] = {}
-  output=search_module(modname)
+  output=search_module(mod)
   output_json = JSON.parse(output)
   answers = output_json['answers']
 
