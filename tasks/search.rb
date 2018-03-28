@@ -44,6 +44,6 @@ answers.each do |answer|
   version = answer['version']
   description = answer['desc']
 
-  puts "#{full_name}" + "#{version}" + "#{description}"
+  puts "|| #{full_name} ||" + "|| #{version} ||" + "#{description}"
  end
 end
