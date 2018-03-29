@@ -42,9 +42,9 @@ end
 listoutput = list_module[:stdout]
 treeoutput = list_tree_module[:stdout]
 
-if action == 'List'
+if action == 'list'
   puts listoutput
-elsif action == 'Tree List'
+elsif action == 'tree_list'
   puts treeoutput
 else
   puts 'Please select an action.'
