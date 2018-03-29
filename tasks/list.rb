@@ -22,7 +22,7 @@ unless Puppet[:server] == Puppet[:certname]
 end
 
 def list_module
-  stdout, stderr, status = Open3.capture3('/opt/puppetlabs/bin/puppet', 'module', 'list',)
+  stdout, stderr, status = Open3.capture3('/opt/puppetlabs/bin/puppet', 'module', 'list', '--color=never')
 {
   stdout: stdout.strip,
   stderr: stderr.strip,
