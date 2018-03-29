@@ -19,7 +19,7 @@ The puppet_module task enables users to Install, Uninstall, Search, and List mod
 
 ## Setup
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements
 
 Install the module through your Puppetfile or through the command line on the Puppet Master.
 

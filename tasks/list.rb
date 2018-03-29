@@ -31,7 +31,7 @@ def list_module
 end
 
 def list_tree_module
-  stdout, stderr, status = Open3.capture3('/opt/puppetlabs/bin/puppet', 'module', 'list', '--tree')
+  stdout, stderr, status = Open3.capture3('/opt/puppetlabs/bin/puppet', 'module', 'list', '--tree', '--color=never')
   {
     stdout: stdout.strip,
     stderr: stderr.strip,
