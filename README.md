@@ -29,19 +29,19 @@ Install the module through your Puppetfile or through the command line on the Pu
 
 Go to Puppet Web UI > Tasks > Select `puppet_module::install` example:
 
-![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_install_example.png =350x)
+![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_install_example_smallimg.png)
 
 `puppet_module::uninstall` example:
 
-![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_uninstall_example.png =350x)
+![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_uninstall_example.png)
 
 `puppet_module::search` example:
 
-![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_search_example.png =350x)
+![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_search_example.png)
 
 `puppet_module::list` example:
 
-![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_list_example.png =350x)
+![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_list_example.png)
 
 ## Reference
 
