@@ -5,7 +5,7 @@
   "parameters": {
     "action": {
       "description": "List installed modules",
-      "type": "Enum[List,Tree List]"
+      "type": "Enum[list,tree_list]"
     }
   }
 }
