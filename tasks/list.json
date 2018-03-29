@@ -1,0 +1,11 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "List for locally installed modules",
+  "parameters": {
+    "action": {
+      "description": "List installed modules",
+      "type": "Enum[List,Tree List]"
+    }
+  }
+}
