@@ -1,10 +1,12 @@
 {
-  "name": "tspy-forge_module_manager",
+  "name": "tspy-puppet_module",
   "version": "0.1.0",
   "author": "Tommy S.",
-  "summary": "",
+  "summary": "Task to manage, search and list Puppet modules",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/tspeigner/puppet_module",
+  "project_page": "https://github.com/tspeigner/puppet_module",
+  "issues_url": "https://github.com/tspeigner/puppet_module/issues",
   "dependencies": [
 
   ],
@@ -54,5 +56,15 @@
   ],
   "pdk-version": "1.4.1",
   "template-url": "https://github.com/puppetlabs/pdk-templates",
-  "template-ref": "1.4.1-0-g52adbbb"
+  "template-ref": "1.4.1-0-g52adbbb",
+  "tags": [
+    "forge",
+    "task",
+    "search",
+    "install",
+    "uninstall",
+    "modules",
+    "module",
+    "puppet forge"
+  ]
 }

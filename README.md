@@ -1,23 +1,13 @@
 
-# forge_module_manager
-
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
-
-The README template below provides a starting point with details about what information to include in your README.
-
-
-
-
-
-
+# puppet_module 
 
 #### Table of Contents
 
 1. [Description](#description)
-2. [Setup - The basics of getting started with forge_module_manager](#setup)
-    * [What forge_module_manager affects](#what-forge_module_manager-affects)
+2. [Setup - The basics of getting started with puppet_module](#setup)
+    * [What puppet_module affects](#what-puppet_module-affects)
     * [Setup requirements](#setup-requirements)
-    * [Beginning with forge_module_manager](#beginning-with-forge_module_manager)
+    * [Beginning with puppet_module](#beginning-with-puppet_module)
 3. [Usage - Configuration options and additional functionality](#usage)
 4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
@@ -25,57 +15,48 @@ The README template below provides a starting point with details about what info
 
 ## Description
 
-Start with a one- or two-sentence summary of what the module does and/or what problem it solves. This is your 30-second elevator pitch for your module. Consider including OS/Puppet version it works with.
-
-You can give more descriptive information in a second paragraph. This paragraph should answer the questions: "What does this module *do*?" and "Why would I use it?" If your module has a range of functionality (installation, configuration, management, etc.), this is the time to mention it.
+The puppet_module task enables users to Install, Uninstall, Search, and List modules.
 
 ## Setup
 
-### What forge_module_manager affects **OPTIONAL**
-
-If it's obvious what your module touches, you can skip this section. For example, folks can probably figure out that your mysql_instance module affects their MySQL instances.
-
-If there's more that they should know about, though, this is the place to mention:
-
-* Files, packages, services, or operations that the module will alter, impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
-
 ### Setup Requirements **OPTIONAL**
 
-If your module requires anything extra before setting up (pluginsync enabled, another module, etc.), mention it here.
+Install the module through your Puppetfile or through the command line on the Puppet Master.
 
-If your most recent release breaks compatibility or requires particular steps for upgrading, you might want to include an additional "Upgrading" section here.
-
-### Beginning with forge_module_manager
-
-The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
+### Beginning with puppet_module
 
 ## Usage
 
-This section is where you describe how to customize, configure, and do the fancy stuff with your module here. It's especially helpful if you include usage examples and code samples for doing things with your module.
+Go to Puppet Web UI > Tasks > Select `puppet_module::install` example:
+
+![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_install_example.png)
+
+`puppet_module::uninstall` example:
+
+![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_uninstall_example.png)
+
+`puppet_module::search` example:
+
+![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_search_example.png)
+
+`puppet_module::list` example:
+
+![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_list_example.png)
 
 ## Reference
 
-Users need a complete list of your module's classes, types, defined types providers, facts, and functions, along with the parameters for each. You can provide this list either via Puppet Strings code comments or as a complete list in the README Reference section.
+[More information about installing Puppet Modules from the Puppet Forge](https://puppet.com/docs/puppet/5.3/modules_installing.html#install-modules-from-the-puppet-forge)
 
-* If you are using Puppet Strings code comments, this Reference section should include Strings information so that your users know how to access your documentation.
+[More information on uninstalling Puppet Modules](https://puppet.com/docs/puppet/5.3/modules_installing.html#uninstalling-modules)
 
-* If you are not using Puppet Strings, include a list of all of your classes, defined types, and so on, along with their parameters. Each element in this listing should include:
+[More information on searching Puppet Modules on the Puppet Forge](https://puppet.com/docs/puppet/5.3/modules_installing.html#finding-forge-modules)
 
-  * The data type, if applicable.
-  * A description of what the element does.
-  * Valid values, if the data type doesn't make it obvious.
-  * Default value, if any.
+[More information on Puppet Module List commands](https://puppet.com/docs/puppet/5.3/modules_installing.html#listing-installed-modules)
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc. If there are Known Issues, you might want to include them under their own heading here.
+These tasks can only run on the Puppet Master.
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc. **Optional**
-
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You can also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
+Fork it, change it, submit it, make it your own, or provide feedback.
