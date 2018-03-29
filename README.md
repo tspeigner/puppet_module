@@ -29,7 +29,7 @@ Install the module through your Puppetfile or through the command line on the Pu
 
 Go to Puppet Web UI > Tasks > Select `puppet_module::install` example:
 
-![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_install_example_smallimg.png)
+![Image](https://github.com/tspeigner/puppet_module/raw/master/img/module_install_example.png)
 
 `puppet_module::uninstall` example:
 
