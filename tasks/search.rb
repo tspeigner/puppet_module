@@ -44,6 +44,8 @@ answers.each do |answer|
   version = answer['version']
   description = answer['desc']
 
-  puts "|| #{full_name} ||" + "|| #{version} ||" + "#{description}"
+  puts "|| #{full_name} " + "|| #{version} ||" + " #{description}"
+  puts "To install module copy this text '#{full_name}' and paste in the Puppet Module Install Task"
+  puts ''
  end
 end
